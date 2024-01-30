@@ -46,6 +46,8 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 mysql>
 ```
 
+![RESULT](./Image/MYSQLSERVER.png)
+
 It’s recommended that you run a security script that comes pre-installed with MySQL. This script will remove some insecure default settings and lock down access to your database system. Before running the script you will set a password for the root user, using mysql_native_password as default authentication method. We’re defining this user’s password as PassWord.1.
 ```bash
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';
@@ -73,12 +75,12 @@ Now you can create a new user and grant him full privileges on the database you 
 The following command creates a new user named example_user, using mysql_native_password as default authentication method. We’re defining this user’s password as PassWord.1, but you should replace this value with a secure password of your own choosing.
 
 ```bash
-CREATE USER 'example_user'@'%' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';
+CREATE USER 'lourash'@'%' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';
 ```
 
 Now we need to give this user permission over the example_database database:
 ```bash
-GRANT ALL ON example_database.* TO 'example_user'@'%';
+GRANT ALL ON example_database.* TO 'lourash'@'%';
 ```
 
 This will give the example_user user full privileges over the example_database database, while preventing this user from creating or modifying other databases on your server.
@@ -87,9 +89,11 @@ Now exit the MySQL shell with:
 mysql> exit
 ```
 
+![Scripts](./Image/Scripts.png)
+
 You can test if the new user has the proper permissions by logging in to the MySQL console from the MYSQL Client, this time using the custom user credentials:
 ```bash
-mysql -h 172.31.43.127 -u example_user -p example_database
+mysql -h 172.31.43.127 -u lourash -p example_database
 ```
 
 ![Database](./Image/MYSQLCLient.png)
