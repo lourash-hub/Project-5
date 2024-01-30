@@ -91,9 +91,26 @@ mysql> exit
 
 ![Scripts](./Image/Scripts.png)
 
-You can test if the new user has the proper permissions by logging in to the MySQL console from the MYSQL Client, this time using the custom user credentials:
+5.  Run command below to configure MySQL server to allow connections from remote hosts.
+
+```bash
+sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
+```
+
+Replace ‘127.0.0.1’ to ‘0.0.0.0’ like this
+
+![Results](./Image/mysqld.png)
+
+
+6.  You can test if the new user has the proper permissions by logging in to the MySQL console from the MYSQL Client, this time using the custom user credentials:
 ```bash
 mysql -h 172.31.43.127 -u lourash -p example_database
+```
+
+7.  Check that you have successfully connected to a remote MySQL server and can perform SQL queries:
+
+```bash
+Show databases;
 ```
 
 ![Database](./Image/MYSQLCLient.png)
